@@ -8,27 +8,19 @@ const feature_desktop_indicator = document.querySelector(
 const feature_breakpoint = window.matchMedia(
   "(max-width:690px)"
 );
-let previous_handler = tabbed_handler({
-  type: feature_breakpoint.matches ? "mobile" : "desktop",
-});
 
 feature_buttons.addEventListener(
   "click",
-  tabbed_handler({
-    type: feature_breakpoint.matches ? "mobile" : "desktop",
-  })
+  tabbed_handler({})
 );
 
 // Initial run (so that the indicator will go to first option)
-tabbed_handler({
-  type: feature_breakpoint.matches ? "mobile" : "desktop",
-  isCallback: false,
-});
+tabbed_handler({ isCallback: false });
 
-function tabbed_handler({ type, isCallback = true }) {
+function tabbed_handler({ isCallback = true }) {
   const initial = feature_buttons.children[0];
 
-  function desktop_style(clicked) {
+  function desktop_style(clicked, remove = false) {
     console.log("desktop");
     // Measurement stuff
     const element_width =
@@ -48,23 +40,24 @@ function tabbed_handler({ type, isCallback = true }) {
     clicked.classList.add("highlight-text");
   }
 
-  function mobile_style(clicked) {
+  function mobile_style(clicked, remove = false) {
     console.log("mobile");
     [...feature_buttons.children].forEach((btn) => {
       btn.classList.remove("highlight-text");
       btn.classList.remove("highlight-indicator");
     });
 
+    if (remove) return;
+
     clicked.classList.add("highlight-text");
     clicked.classList.add("highlight-indicator");
   }
 
   // If its a call back then return a function else just run the function
-  if (isCallback) {
+  if (!isCallback) {
     feature_breakpoint.matches
       ? mobile_style(initial)
       : desktop_style(initial);
-  } else {
     return;
   }
 
@@ -77,26 +70,25 @@ function tabbed_handler({ type, isCallback = true }) {
       child.classList.remove("highlight-text")
     );
 
-    if (type === "mobile") mobile_style(clicked);
-    if (type === "desktop") desktop_style(clicked);
+    feature_breakpoint.matches
+      ? mobile_style(clicked)
+      : desktop_style(clicked);
   };
 }
 
 // Screen size resize event listener
 window.addEventListener("resize", () => {
   // If we're less than 690, then remove the listener, vice versa
-  //prettier-ignore
-  // feature_buttons.addEventListener("click",   tabbed_handler({
-  //   type: feature_breakpoint.matches ? "mobile" : "desktop",
-  // }))
 
-  //prettier-ignore
-  feature_buttons.removeEventListener("click",   tabbed_handler({
-    type: feature_breakpoint.matches ? "desktop" : "mobile",
-  }));
-
+  // Refresh the positions.
   tabbed_handler({
-    type: feature_breakpoint.matches ? "mobile" : "desktop",
     isCallback: false,
   });
+
+  // Remove instances of classes used for mobile viewport size
+  if (!feature_breakpoint.matches)
+    [...feature_buttons.children].forEach((btn) => {
+      btn.classList.remove("highlight-text");
+      btn.classList.remove("highlight-indicator");
+    });
 });

@@ -57,7 +57,7 @@
     overflow: hidden;
   }
 
-  @include max-width(phone) {
+  @include max-width(phone-large) {
     &__top {
       padding-right: 0;
     }

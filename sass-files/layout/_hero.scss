@@ -21,25 +21,32 @@
     gap: 1.25rem;
   }
 
-  &__img {
+  &__img-wrapper {
     width: clamp(30rem, 45vw, 40rem);
     margin-right: -10%;
+    flex-shrink: 0;
+
+    position: relative;
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      right: -60%;
+      bottom: 0%;
+
+      width: 140%;
+      height: 80%;
+
+      border-radius: 20rem 0 0 20rem;
+      background-color: var(--clr-main-200);
+
+      z-index: -1;
+    }
   }
 
-  &::after {
-    content: "";
-
-    position: absolute;
-    right: 0%;
-    bottom: 7.5%;
-
-    width: 40%;
-    height: 20rem;
-
-    border-radius: 20rem 0 0 20rem;
-    background-color: var(--clr-main-200);
-
-    z-index: -1;
+  &__img {
+    width: 100%;
   }
 
   @include max-width(desktop) {
@@ -54,15 +61,26 @@
       margin-right: 0;
     }
 
-    &::after {
-      bottom: 48%;
-      height: 17.5rem;
-      width: 60%;
-    }
+    // &::after {
+    //   top: 17.5%;
+    //   // height: 35vw;
+    //   // height: 17.5rem;
+    //   // height: 12.5rem;
+    //   height: 17.5rem;
+    //   width: 60%;
+    // }
 
-    &__img {
+    &__img-wrapper {
       margin: 0;
+      // width: 90vw;
+      width: clamp(22.5rem, 90vw, 30rem);
     }
+  }
+
+  @include max-width(phone-large) {
+    // &::after {
+    //   height: clamp(12.5rem, 35vw, 17.5rem);
+    // }
   }
 }
 

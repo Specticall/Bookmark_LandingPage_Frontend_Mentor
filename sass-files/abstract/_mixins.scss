@@ -28,7 +28,7 @@
     }
   }
 
-  @if dimension == phone-large {
+  @if $dimension == phone-large {
     @media (max-width: 500px) {
       @content;
     }

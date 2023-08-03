@@ -76,6 +76,10 @@
     }
   }
 
+  &__heading {
+    text-align: center;
+  }
+
   &__tabbed {
     display: flex;
     justify-content: space-between;
@@ -181,16 +185,6 @@
     .desktop__indicator {
       display: none;
     }
-  }
-
-  @include max-width(tablet) {
-    // &__img-wrapper {
-    //   width: Max(70vw, 20rem);
-    // }
-    // &__tabbed {
-    //   &-img {
-    //   }
-    // }
   }
 }
 
