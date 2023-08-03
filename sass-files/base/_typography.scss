@@ -1,0 +1,39 @@
+.heading {
+  &--primary {
+    font-size: var(--fs-primary-heading);
+    @include heading-color-weight;
+  }
+
+  &--secondary {
+    font-size: var(--fs-secondary-heading);
+    @include heading-color-weight;
+  }
+
+  &--tertiary {
+    font-size: var(--fs-tertiary-heading);
+    @include heading-color-weight;
+  }
+
+  &--white {
+    color: white;
+  }
+}
+
+.paragraph {
+  line-height: 1.5;
+  font-size: var(--fs-paragraph);
+  color: var(--clr-main-300);
+
+  &--spaced {
+    letter-spacing: 0.3rem;
+  }
+
+  &--small {
+    font-size: 0.75rem;
+  }
+}
+
+.icon {
+  font-size: 2rem;
+  color: var(--clr-main-200);
+}

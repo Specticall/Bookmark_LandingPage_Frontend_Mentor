@@ -1,0 +1,42 @@
+@mixin heading-color-weight {
+  color: var(--clr-main-100);
+  font-weight: var(--fw-medium);
+}
+
+@mixin max-width($dimension) {
+  @if $dimension == desktop {
+    @media (max-width: 1080px) {
+      @content;
+    }
+  }
+
+  @if $dimension == tablet-large {
+    @media (max-width: 985px) {
+      @content;
+    }
+  }
+
+  @if $dimension == tablet-medium {
+    @media (max-width: 750px) {
+      @content;
+    }
+  }
+
+  @if $dimension == tablet {
+    @media (max-width: 690px) {
+      @content;
+    }
+  }
+
+  @if dimension == phone-large {
+    @media (max-width: 500px) {
+      @content;
+    }
+  }
+
+  @if $dimension == phone {
+    @media (max-width: 424px) {
+      @content;
+    }
+  }
+}

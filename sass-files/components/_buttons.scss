@@ -1,0 +1,57 @@
+.button {
+  border: none;
+  background: none;
+  font-size: var(--fs-cta);
+
+  cursor: pointer;
+
+  transition: 0.25s;
+
+  &--hover-accent:hover {
+    color: var(--clr-accent);
+  }
+
+  &__big {
+    font-size: var(--fs-paragraph);
+  }
+
+  &--spaced {
+    font-weight: var(--fw-regular);
+    color: var(--clr-main-100);
+    letter-spacing: 0.075rem;
+  }
+
+  &--accent {
+    background: var(--clr-accent);
+    color: white;
+    padding: 0.65rem 2rem;
+    border-radius: 0.25rem;
+    // x y blu spread color (xy bsc = "xy basic")
+    box-shadow: 0.15rem 0.15rem 1rem 0rem
+      var(--clr-main-100-op);
+  }
+
+  &--blue {
+    padding: 1rem 1.25rem;
+    border-radius: 0.25rem;
+    background-color: var(--clr-main-200);
+    color: white;
+    font-weight: var(--fw-medium);
+    box-shadow: 0rem 0.3rem 0.25rem 0rem
+      hsla(231, 69%, 30%, 0.15);
+  }
+
+  &--gray {
+    padding: 1rem 1.25rem;
+    border-radius: 0.25rem;
+    background-color: var(--clr-main-400);
+    color: var(--clr-main-100);
+    font-weight: var(--fw-medium);
+    box-shadow: 0rem 0.3rem 0.25rem 0rem
+      hsla(231, 69%, 30%, 0.15);
+  }
+
+  &--text-light {
+    color: var(--clr-main-400);
+  }
+}

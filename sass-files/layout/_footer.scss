@@ -1,0 +1,45 @@
+.footer {
+  padding-block: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-background {
+    background-color: var(--clr-main-100);
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+  }
+
+  &__social-media {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+  }
+
+  &-logo {
+    color: white;
+    width: 10rem;
+  }
+
+  @include max-width(tablet-medium) {
+    & {
+      flex-direction: column;
+      gap: 3rem;
+
+      &__buttons {
+        flex-direction: column;
+
+        button {
+          font-size: 1rem;
+          letter-spacing: 0.2rem;
+        }
+      }
+    }
+  }
+}

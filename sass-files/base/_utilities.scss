@@ -1,0 +1,25 @@
+.section {
+  padding-inline: 7.5rem;
+  margin-inline: auto;
+  max-width: 1300px;
+
+  overflow-x: hidden;
+}
+
+@include max-width(desktop) {
+  .section {
+    padding-inline: 5rem;
+  }
+}
+
+@include max-width(tablet) {
+  .section {
+    padding-inline: 3rem;
+  }
+}
+
+@include max-width(phone) {
+  .section {
+    padding-inline: 1.5rem;
+  }
+}

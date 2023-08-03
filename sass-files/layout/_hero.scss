@@ -1,0 +1,73 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-block: 6rem;
+  // padding-top: 13rem;
+
+  position: relative;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 30rem;
+    margin-right: 5rem;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  &__img {
+    width: clamp(30rem, 45vw, 40rem);
+    margin-right: -10%;
+  }
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    right: 0%;
+    bottom: 7.5%;
+
+    width: 40%;
+    height: 20rem;
+
+    border-radius: 20rem 0 0 20rem;
+    background-color: var(--clr-main-200);
+
+    z-index: -1;
+  }
+
+  @include max-width(desktop) {
+    & {
+      flex-direction: column-reverse;
+    }
+
+    &__info {
+      align-items: center;
+      text-align: center;
+      margin-top: 2rem;
+      margin-right: 0;
+    }
+
+    &::after {
+      bottom: 48%;
+      height: 17.5rem;
+      width: 60%;
+    }
+
+    &__img {
+      margin: 0;
+    }
+  }
+}
+
+.dummy {
+  background-color: white;
+  height: 1rem;
+  width: 100%;
+}

@@ -1,0 +1,29 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5rem;
+
+  // Change to fixed when scrolling
+  position: sticky;
+  left: 0;
+  right: 0;
+  top: 0rem;
+  z-index: 1;
+
+  background: white;
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 2rem;
+  }
+
+  @include max-width(tablet-medium) {
+    &__buttons {
+      display: none;
+    }
+  }
+}

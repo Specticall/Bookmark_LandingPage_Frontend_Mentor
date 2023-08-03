@@ -1,0 +1,32 @@
+:root {
+  --fs-primary-heading: 2.5rem;
+  --fs-secondary-heading: 1.75rem;
+  --fs-tertiary-heading: 1.25rem;
+  --fs-paragraph: 1rem;
+  --fs-cta: 0.75rem;
+
+  --clr-main-200: hsl(231, 69%, 60%);
+  --clr-accent: hsl(0, 94%, 66%);
+  --clr-main-300: hsl(229, 8%, 60%);
+  --clr-main-350: hsl(229, 8%, 90%);
+  --clr-main-400: hsl(229, 8%, 95%);
+  --clr-main-150: hsl(229, 5%, 40%);
+  --clr-main-100: hsl(229, 31%, 21%);
+
+  --clr-main-100-op: hsla(229, 31%, 21%, 0.3);
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+
+  --ff-body: "Rubik", sans-serif;
+
+  --animation-primary: 0.5s cubic-bezier(0.3, 1, 0.3, 1);
+  --animation-nav: 0.5s cubic-bezier(0.6, 0, 0.4, 1);
+  --animation-smooth: 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+$clr-main-200: hsl(231, 69%, 60%);
+$clr-accent: hsl(0, 94%, 66%);
+$clr-main-300: hsl(229, 8%, 60%);
+$clr-main-100: hsl(229, 31%, 21%);
