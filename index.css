@@ -65,7 +65,28 @@ body {
   padding-inline: 7.5rem;
   margin-inline: auto;
   max-width: 1300px;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  transition: 0.75s; }
+
+.images:not(.unique_transition) {
+  transition: 0.75s; }
+
+.download__card--1 {
+  transition: 0.75s; }
+
+.download__card--2 {
+  transition: 1s; }
+
+.download__card--3 {
+  transition: 1.25s; }
+
+.invisible.unique_transition {
+  opacity: 0;
+  translate: 0% 30%; }
+
+.invisible:not(.unique_transition) {
+  opacity: 0;
+  translate: 0% 15%; }
 
 @media (max-width: 1080px) {
   .section {
@@ -94,7 +115,8 @@ body {
     overflow: hidden; }
   .accordion-wrapper {
     display: grid;
-    transition: var(--animation-primary); }
+    transition: var(--animation-primary);
+    grid-template-rows: 1fr; }
     .accordion-wrapper > div {
       overflow: hidden; }
   .accordion--hidden {
@@ -165,23 +187,110 @@ body {
   left: 0;
   right: 0;
   top: 0rem;
-  z-index: 1;
-  background: white; }
+  z-index: 80;
+  background: white;
+  transition: opacity 0.5s; }
   .nav__buttons {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 2rem; }
+  .nav__social-media {
+    display: none; }
+  .nav .mobile_nav-button {
+    position: relative;
+    width: 2rem;
+    height: 1rem; }
+  .nav .mobile-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; }
+  .nav .line {
+    position: absolute;
+    width: 2rem;
+    height: 3px;
+    background-color: var(--clr-main-100);
+    transition: var(--animation-primary); }
+    .nav .line--1 {
+      top: 0;
+      left: 0;
+      transform-origin: left; }
+    .nav .line--2 {
+      bottom: 0;
+      left: 0;
+      transform-origin: left; }
   @media (max-width: 750px) {
     .nav__buttons {
-      display: none; } }
+      display: none; }
+    .nav.mobile-open {
+      position: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      flex-direction: column;
+      gap: 3rem;
+      padding-top: 3rem;
+      background-color: rgba(21, 27, 55, 0.95);
+      height: 100vh;
+      width: 100%; }
+      .nav.mobile-open .line {
+        background-color: var(--clr-main-400); }
+      .nav.mobile-open .mobile-top .nav__logo {
+        width: 10rem; }
+      .nav.mobile-open .line--1 {
+        translate: 0 -0.275rem;
+        transform: rotate(45deg); }
+      .nav.mobile-open .line--2 {
+        translate: 0 0.275rem;
+        transform: rotate(-45deg); }
+      .nav.mobile-open .nav__social-media {
+        display: flex;
+        gap: 2.5rem;
+        position: absolute;
+        bottom: 5rem; }
+        .nav.mobile-open .nav__social-media > * {
+          width: 2rem; }
+      .nav.mobile-open .nav__buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0; }
+        .nav.mobile-open .nav__buttons button {
+          color: var(--clr-main-350);
+          font-size: 1.5rem;
+          letter-spacing: 0.15rem;
+          border-bottom: 1px solid var(--clr-main-150);
+          width: 90vw;
+          padding-block: 2rem; }
+          .nav.mobile-open .nav__buttons button:first-child {
+            border-top: 1px solid var(--clr-main-150); }
+          .nav.mobile-open .nav__buttons button:nth-child(2) {
+            border-bottom: 1px solid var(--clr-main-150); }
+        .nav.mobile-open .nav__buttons .button--accent {
+          background: none;
+          border: 2px solid var(--clr-main-400);
+          margin-top: 2rem;
+          padding-block: 1rem;
+          font-weight: var(--fw-semibold); }
+    .nav .mobile_nav-button {
+      display: flex; } }
+
+.mobile_nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  font-size: 2rem;
+  position: relative;
+  z-index: 102; }
 
 .download {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding-block: 6rem;
-  margin-bottom: 5rem; }
+  margin-bottom: 5rem;
+  overflow: hidden; }
   .download__heading {
     display: flex;
     align-items: center;
@@ -269,7 +378,8 @@ body {
   justify-content: center;
   padding-bottom: 6rem;
   gap: 3rem;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   .features__img-wrapper {
     width: 30rem;
     flex-shrink: 0;
@@ -429,27 +539,88 @@ body {
     .signup__heading-top {
       margin-bottom: 2rem;
       color: white; }
+  .signup__input {
+    border-radius: 0.25rem; }
+    .signup__input:focus {
+      border: 1px solid var(--clr-main-150); }
+    .signup__input-container {
+      border-radius: 0.25rem;
+      position: relative;
+      border: 0px solid var(--clr-accent);
+      transition: 0.15s; }
+      .signup__input-container::after, .signup__input-container::before {
+        transition: 0.15s; }
+      .signup__input-container::after {
+        content: "Whoops, make sure it's an email";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -1.25rem;
+        width: calc(100% + 0.25rem - 1rem);
+        height: 1.25rem;
+        background-color: var(--clr-accent);
+        border-radius: 0 0 0.25rem 0.25rem;
+        font-size: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        padding-inline: 0.5rem;
+        color: white;
+        font-weight: var(--fw-medium);
+        font-style: italic;
+        z-index: 0;
+        opacity: 0; }
+      .signup__input-container::before {
+        content: "!";
+        z-index: 15;
+        position: absolute;
+        background-color: var(--clr-accent);
+        width: 1rem;
+        height: 1rem;
+        padding: 0.1rem;
+        font-size: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        border-radius: 100%;
+        right: 1rem;
+        top: 50%;
+        transform: translate(0, -50%);
+        opacity: 0; }
+      .signup__input-container.wrong-email {
+        border: 2px solid var(--clr-accent); }
+        .signup__input-container.wrong-email::before, .signup__input-container.wrong-email::after {
+          opacity: 1; }
   .signup__form {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    max-width: 25rem;
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    max-width: 30rem;
     width: 100%;
     gap: 1rem;
-    height: 3rem;
     margin-top: 2rem; }
+    .signup__form > * {
+      height: 3rem; }
     .signup__form input {
-      padding: 0 1.5rem;
+      padding-left: 1rem;
+      padding-right: 3rem;
       border: none;
-      border-radius: 0.25rem;
       outline: none;
       font-size: var(--fs-cta);
-      color: var(--clr-main-300);
+      color: var(--clr-main-100);
       width: 100%;
-      height: 100%; }
+      height: 100%;
+      position: relative;
+      z-index: 5; }
+      .signup__form input::placeholder {
+        color: var(--clr-main-300); }
     .signup__form button {
-      width: 45%;
-      padding: 0; }
+      padding-inline: 2rem; }
+  @media (max-width: 500px) {
+    .signup__form {
+      grid-template-columns: 1fr; }
+      .signup__form button {
+        margin-top: 1rem; } }
 
 .hero {
   display: flex;

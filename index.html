@@ -41,12 +41,46 @@
     <!-- ==== TOP NAV === -->
     <!-- Used for hero page spacing -->
     <section class="dummy"></section>
-    <nav class="nav section">
-      <img
-        class="nav__logo"
-        src="images/logo-bookmark.svg"
-        alt="Bookmark Icon"
-      />
+    <!-- <section class="mobile-nav">
+      <button class="mobile_nav-button button">
+        <i class="bx bx-menu"></i>
+      </button>
+
+      <div class="mobile-nav--modal">
+        <button
+          class="button button--spaced button--hover-accent"
+        >
+          FEATURES
+        </button>
+        <button
+          class="button button--spaced button--hover-accent"
+        >
+          PRICING
+        </button>
+        <button
+          class="button button--spaced button--hover-accent"
+        >
+          CONTACT
+        </button>
+        <button
+          class="button button--spaced button--hover-accent"
+        >
+          LOGIN
+        </button>
+      </div>
+    </section> -->
+    <nav class="nav section mobile-open">
+      <div class="mobile-top">
+        <img
+          class="nav__logo"
+          src="images/logo-bookmark.svg"
+          alt="Bookmark Icon"
+        />
+        <button class="mobile_nav-button button">
+          <div class="line line--1"></div>
+          <div class="line line--2"></div>
+        </button>
+      </div>
       <div class="nav__buttons">
         <button
           class="button button--spaced button--hover-accent"
@@ -68,6 +102,18 @@
         >
           LOGIN
         </button>
+      </div>
+      <div class="nav__social-media">
+        <img
+          src="images/icon-facebook.svg"
+          alt=""
+          class="footer__social-img"
+        />
+        <img
+          src="images/icon-twitter.svg"
+          alt=""
+          class="footer__social-img"
+        />
       </div>
     </nav>
     <!-- ==== MAIN ==== -->
@@ -98,7 +144,7 @@
             </button>
           </div>
         </heading>
-        <div class="hero__img-wrapper">
+        <div class="hero__img-wrapper invisible images">
           <img
             class="hero__img"
             src="images/illustration-hero.svg"
@@ -121,16 +167,19 @@
         <div class="features__buttons">
           <button
             class="button button__big button__features highlight button--hover-accent"
+            data-tab="0"
           >
             Simple Bookmarking
           </button>
           <button
             class="button button__big button__features button--hover-accent"
+            data-tab="1"
           >
             Speedy Searching
           </button>
           <button
             class="button button__big button__features button--hover-accent"
+            data-tab="2"
           >
             Easy Sharing
           </button>
@@ -139,9 +188,10 @@
         <!-- === Tabbed Component 1 === -->
         <article
           class="features__tabbed features__tabbed--1"
-          data-tab="1"
         >
-          <div class="features__img-wrapper">
+          <div
+            class="features__img-wrapper invisible images"
+          >
             <img
               src="images/illustration-features-tab-1.svg"
               alt=""
@@ -166,9 +216,10 @@
         <!-- === Tabbed Component 2 === -->
         <article
           class="features__tabbed features__tabbed--2 features--hidden"
-          data-tab="2"
         >
-          <div class="features__img-wrapper">
+          <div
+            class="features__img-wrapper invisible images"
+          >
             <img
               src="images/illustration-features-tab-2.svg"
               alt=""
@@ -192,9 +243,10 @@
         <!-- === Tabbed Component 3 === -->
         <article
           class="features__tabbed features__tabbed--3 features--hidden"
-          data-tab="3"
         >
-          <div class="features__img-wrapper">
+          <div
+            class="features__img-wrapper invisible images"
+          >
             <img
               src="images/illustration-features-tab-3.svg"
               alt=""
@@ -230,7 +282,9 @@
         </heading>
         <div class="download__cards">
           <!-- === CARD 1 ===-->
-          <article class="download__card download__card--1">
+          <article
+            class="download__card download__card--1 unique_transition invisible images"
+          >
             <img
               class="download__logos"
               src="images/logo-chrome.svg"
@@ -251,7 +305,9 @@
             </button>
           </article>
           <!-- === CARD 2 === -->
-          <article class="download__card download__card--2">
+          <article
+            class="download__card download__card--2 unique_transition invisible images"
+          >
             <img
               class="download__logos"
               src="images/logo-firefox.svg"
@@ -272,7 +328,9 @@
             </button>
           </article>
           <!-- === CARD 3 === -->
-          <article class="download__card download__card--3">
+          <article
+            class="download__card download__card--3 unique_transition invisible images"
+          >
             <img
               class="download__logos"
               src="images/logo-opera.svg"
@@ -295,7 +353,7 @@
         </div>
       </section>
       <!-- === FAQ === -->
-      <section class="faq section">
+      <section class="faq section invisible">
         <heading class="faq__heading">
           <h2 class="heading--secondary">
             Frequently Asked Questions
@@ -449,12 +507,16 @@
             </h2>
           </heading>
           <form action="" class="signup__form">
-            <input
-              type="text"
-              class="signup__input"
-              placeholder="Enter your email"
-            />
-            <button class="button button--accent">
+            <div class="signup__input-container">
+              <input
+                type="text"
+                class="signup__input"
+                placeholder="Enter your email"
+              />
+            </div>
+            <button
+              class="button button--accent signup__submit"
+            >
               Contact Us
             </button>
           </form>
