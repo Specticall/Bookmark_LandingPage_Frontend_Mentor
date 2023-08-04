@@ -41,12 +41,21 @@
     <!-- ==== TOP NAV === -->
     <!-- Used for hero page spacing -->
     <section class="dummy"></section>
-    <!-- <section class="mobile-nav">
-      <button class="mobile_nav-button button">
-        <i class="bx bx-menu"></i>
-      </button>
-
-      <div class="mobile-nav--modal">
+    <nav class="nav section" data-state="closed">
+      <div class="mobile-top">
+        <!-- <div class="nav__logo"></div> -->
+        <img
+          class="nav__logo"
+          src="images/logo-bookmark.png"
+          alt="Bookmark Icon"
+        />
+        <button class="mobile_nav-button button">
+          <div class="line line--1"></div>
+          <div class="line line--2"></div>
+        </button>
+      </div>
+      <!-- FOR MOBILE -->
+      <section class="mobile-nav">
         <button
           class="button button--spaced button--hover-accent"
         >
@@ -63,24 +72,25 @@
           CONTACT
         </button>
         <button
-          class="button button--spaced button--hover-accent"
+          class="button button--accent button--spaced"
         >
           LOGIN
         </button>
-      </div>
-    </section> -->
-    <nav class="nav section mobile-open">
-      <div class="mobile-top">
-        <img
-          class="nav__logo"
-          src="images/logo-bookmark.svg"
-          alt="Bookmark Icon"
-        />
-        <button class="mobile_nav-button button">
-          <div class="line line--1"></div>
-          <div class="line line--2"></div>
-        </button>
-      </div>
+
+        <div class="nav__social-media">
+          <img
+            src="images/icon-facebook.svg"
+            alt=""
+            class="footer__social-img"
+          />
+          <img
+            src="images/icon-twitter.svg"
+            alt=""
+            class="footer__social-img"
+          />
+        </div>
+      </section>
+      <!-- FOR DESKTOP -->
       <div class="nav__buttons">
         <button
           class="button button--spaced button--hover-accent"
@@ -98,22 +108,10 @@
           CONTACT
         </button>
         <button
-          class="button button--accent button--spaced button--hover-accent"
+          class="button button--accent button--spaced"
         >
           LOGIN
         </button>
-      </div>
-      <div class="nav__social-media">
-        <img
-          src="images/icon-facebook.svg"
-          alt=""
-          class="footer__social-img"
-        />
-        <img
-          src="images/icon-twitter.svg"
-          alt=""
-          class="footer__social-img"
-        />
       </div>
     </nav>
     <!-- ==== MAIN ==== -->
@@ -144,7 +142,7 @@
             </button>
           </div>
         </heading>
-        <div class="hero__img-wrapper invisible images">
+        <div class="hero__img-wrapper">
           <img
             class="hero__img"
             src="images/illustration-hero.svg"
@@ -217,9 +215,7 @@
         <article
           class="features__tabbed features__tabbed--2 features--hidden"
         >
-          <div
-            class="features__img-wrapper invisible images"
-          >
+          <div class="features__img-wrapper">
             <img
               src="images/illustration-features-tab-2.svg"
               alt=""
@@ -244,9 +240,7 @@
         <article
           class="features__tabbed features__tabbed--3 features--hidden"
         >
-          <div
-            class="features__img-wrapper invisible images"
-          >
+          <div class="features__img-wrapper">
             <img
               src="images/illustration-features-tab-3.svg"
               alt=""
@@ -368,18 +362,20 @@
         <div class="accordion">
           <!-- === faq 1 === -->
           <article
-            class="accordion__block faq--1"
+            class="accordion__block faq--1 isHidden"
             data-faq="1"
           >
             <div
               class="accordion__top accordion--hover-accent"
             >
               <h3
-                class="accordion__heading heading-quartener"
+                class="accordion__heading heading-quartener highlight"
               >
                 What is Bookmark?
               </h3>
-              <i class="bx bx-chevron-down icon"></i>
+              <i
+                class="accordion__heading bx bx-chevron-down icon"
+              ></i>
             </div>
             <div
               class="accordion-wrapper accordion--hidden"
@@ -396,14 +392,14 @@
           </article>
           <!-- === faq 2 === -->
           <article
-            class="accordion__block faq--2"
+            class="accordion__block faq--2 isHidden"
             data-faq="2"
           >
             <div
               class="accordion__top accordion--hover-accent"
             >
               <h3
-                class="accordion__heading heading-quartener"
+                class="accordion__heading heading-quartener highlight"
               >
                 How can I request a new browser?
               </h3>
@@ -429,14 +425,14 @@
           </article>
           <!-- === faq 3 === -->
           <article
-            class="accordion__block faq--3"
+            class="accordion__block faq--3 isHidden"
             data-faq="3"
           >
             <div
               class="accordion__top accordion--hover-accent"
             >
               <h3
-                class="accordion__heading heading-quartener"
+                class="accordion__heading heading-quartener highlight"
               >
                 Is there a mobile app?
               </h3>
@@ -459,14 +455,14 @@
           </article>
           <!-- === faq 4 === -->
           <article
-            class="accordion__block faq--4"
+            class="accordion__block faq--4 isHidden"
             data-faq="4"
           >
             <div
               class="accordion__top accordion--hover-accent"
             >
               <h3
-                class="accordion__heading heading--quartener"
+                class="accordion__heading heading--quartener highlight"
               >
                 What about other Chromium browsers?
               </h3>
@@ -532,13 +528,19 @@
             alt="Bookmark Logo"
             class="footer-logo"
           />
-          <button class="button button--text-light">
+          <button
+            class="button button--text-light button--hover-accent"
+          >
             FEATURES
           </button>
-          <button class="button button--text-light">
+          <button
+            class="button button--text-light button--hover-accent"
+          >
             PRICING
           </button>
-          <button class="button button--text-light">
+          <button
+            class="button button--text-light button--hover-accent"
+          >
             CONTACT
           </button>
         </div>

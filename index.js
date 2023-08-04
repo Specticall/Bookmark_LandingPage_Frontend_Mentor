@@ -1,7 +1,6 @@
 // Todo :
 /*
-3. Mobile nav menu
-4. footer belom di tambahin highlight class.
+
 */
 
 // Desktop Features Section Scroll
@@ -110,6 +109,9 @@ window.addEventListener("resize", () => {
       btn.classList.remove("highlight-text");
       btn.classList.remove("highlight-indicator");
     });
+
+  if (!feature_breakpoint.matches)
+    mobile_logo_toggle({ state: "closed" });
 });
 
 // Accordion
@@ -118,22 +120,35 @@ const accordion_wrappers = document.querySelectorAll(
 );
 const accordion_container =
   document.querySelector(".accordion");
+const accordion_block = document.querySelectorAll(
+  ".accordion__block"
+);
+
 // const accordions =
 
+let prev_accordion;
 accordion_container.addEventListener("click", (e) => {
   const clicked = e.target.closest(".accordion__block");
 
   if (!clicked) return;
 
   const faq_index = clicked.dataset.faq - 1;
+  accordion_wrappers.forEach((wrapper, i) => {
+    wrapper.classList.add("accordion--hidden");
+    accordion_block[i].classList.add("isHidden");
+  });
 
-  accordion_wrappers.forEach((wrapper) =>
-    wrapper.classList.add("accordion--hidden")
-  );
+  // Checks if we don't click the same accordion heading / block
+  if (faq_index !== prev_accordion) {
+    accordion_wrappers[faq_index].classList.remove(
+      "accordion--hidden"
+    );
+    accordion_block[faq_index].classList.remove("isHidden");
 
-  accordion_wrappers[faq_index].classList.remove(
-    "accordion--hidden"
-  );
+    prev_accordion = faq_index;
+  } else {
+    prev_accordion = null;
+  }
 });
 
 // Search Bar
@@ -204,6 +219,45 @@ const mobile_menu_toggle = document.querySelector(
   ".mobile_nav-button"
 );
 
-mobile_menu_toggle.addEventListener("click", function (e) {
-  this.closest(".nav").classList.toggle("mobile-open");
-});
+mobile_menu_toggle.addEventListener(
+  "click",
+  mobile_logo_toggle({ isCallback: true })
+);
+
+function mobile_logo_toggle({
+  state = "none",
+  isCallback = true,
+}) {
+  const nav = document.querySelector(".nav");
+  const nav_logo = nav.querySelector(".nav__logo");
+
+  if (state === "open") nav.classList.add("mobile-open");
+  if (state === "closed")
+    nav.classList.remove("mobile-open");
+
+  nav_logo.setAttribute(
+    "src",
+    state === "open"
+      ? "images/logo-bookmark-light-full.png"
+      : "images/logo-bookmark.png"
+  );
+
+  if (state === "open" || state === "closed")
+    nav.dataset.state = state;
+
+  if (!isCallback) return;
+
+  return function (e) {
+    nav.dataset.state =
+      nav.dataset.state === "closed" ? "open" : "closed";
+
+    nav.classList.toggle("mobile-open");
+
+    nav_logo.setAttribute(
+      "src",
+      nav.dataset.state === "open"
+        ? "images/logo-bookmark-light-full.png"
+        : "images/logo-bookmark.png"
+    );
+  };
+}

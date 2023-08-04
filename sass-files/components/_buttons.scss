@@ -5,11 +5,7 @@
 
   cursor: pointer;
 
-  transition: 0.25s;
-
-  &--hover-accent:hover {
-    color: var(--clr-accent);
-  }
+  transition: 0.1s;
 
   &__big {
     font-size: var(--fs-paragraph);
@@ -53,5 +49,30 @@
 
   &--text-light {
     color: var(--clr-main-400);
+  }
+
+  @media (hover: hover) {
+    &--hover-accent:hover {
+      color: var(--clr-accent);
+    }
+
+    // &--accent:hover {
+    //   background: white;
+    //   outline: 2px solid var(--clr-accent);
+    //   font-weight: var(--fw-semibold);
+    //   color: var(--clr-accent);
+    // }
+
+    &--accent:hover {
+      @include btn-hover(var(--clr-accent));
+    }
+
+    &--blue:hover {
+      @include btn-hover(var(--clr-main-200));
+    }
+
+    &--gray:hover {
+      @include btn-hover(var(--clr-main-300));
+    }
   }
 }

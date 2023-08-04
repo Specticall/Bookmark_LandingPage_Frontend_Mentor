@@ -2,8 +2,12 @@
   max-width: 40rem;
   margin-inline: auto;
 
-  &--hover-accent:hover .accordion__heading {
+  .isHidden &--hover-accent:hover .accordion__heading {
     color: var(--clr-accent);
+  }
+
+  i {
+    transition: 0.25s;
   }
 
   &__block {
@@ -17,6 +21,17 @@
     padding-block: 1rem;
 
     overflow: hidden;
+
+    // If an accordion block does not have an isHidden class
+    &:not(.isHidden) {
+      .icon {
+        transform: rotate(180deg);
+      }
+
+      .accordion--hover-accent:hover .icon {
+        color: var(--clr-accent);
+      }
+    }
   }
 
   &-wrapper {

@@ -3,6 +3,13 @@
   font-weight: var(--fw-medium);
 }
 
+@mixin btn-hover($color) {
+  background: white;
+  outline: 2px solid $color;
+  font-weight: var(--fw-semibold);
+  color: $color;
+}
+
 @mixin max-width($dimension) {
   @if $dimension == desktop {
     @media (max-width: 1080px) {
